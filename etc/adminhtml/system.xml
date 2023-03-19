@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ADOBE CONFIDENTIAL
+ * ___________________
+ *
+ * Copyright 2022 Adobe
+ * All Rights Reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Adobe and its suppliers, if any. The intellectual
+ * and technical concepts contained herein are proprietary to Adobe
+ * and its suppliers and are protected by all applicable intellectual
+ * property laws, including trade secret and copyright laws.
+ * Adobe permits you to use and modify this file
+ * in accordance with the terms of the Adobe license agreement
+ * accompanying it (see LICENSE_ADOBE_PS.txt).
+ * If you have received this file from a source other than Adobe,
+ * then your use, modification, or distribution of it
+ * requires the prior written permission from Adobe.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="smc" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>SFMC Integration</label>
+            <tab>casio</tab>
+            <resource>Casio_SMC::config</resource>
+            <group id="authentication" showInDefault="1" showInWebsite="1" showInStore="1"  sortOrder="2" translate="label" canRestore="0">
+                <label>Authentication API</label>
+                <field id="api_url" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>API Url</label>
+                </field>
+                <field id="client_id" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Client Id</label>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="account_id" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Account Id</label>
+                </field>
+                <field id="access_token" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Access Token</label>
+                </field>
+                <field id="expired_in" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Expired In</label>
+                </field>
+            </group>
+
+            <group id="event_api" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="0">
+                  <label>Event Api</label>
+                <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                     showInStore="0">
+                     <label>General</label>
+                     <field id="api_url" translate="label" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="0" showInStore="0" canRestore="1">
+                     <label>API Url</label>
+                    </field>
+                 </group>
+
+                <group id="result_notification_alert" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                      showInStore="0">
+                   <label>Result Notification Alert</label>
+                   <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="0" canRestore="1">
+                       <label>Enabled</label>
+                       <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                   </field>
+                    <field id="email_template" translate="label" type="select" sortOrder="15" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>E-mail template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="send_email" translate="label" type="text" sortOrder="15" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Send E-mails to</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="email_sender" translate="label" type="text" sortOrder="15" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>E-mail Sender</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+
+                <group id="cart_abandonment_alert" translate="label" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Cart Abandonment Alert</label>
+                    <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1"
+                           showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="schedule" translate="label" type="text" sortOrder="2" showInDefault="1" canRestore="1">
+                        <label>Cron Schedule</label>
+                    </field>
+                    <field id="start_date_of_cart_abandonment" translate="label" type="date" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Start Date of Cart Abandonment</label>
+                        <comment>Date format must be yyyy-MM-dd</comment>
+                        <frontend_model>Casio\SMC\Block\Adminhtml\System\Config\DatePicker</frontend_model>
+                    </field>
+                    <field id="cart_abandonment_key" translate="label" type="text" sortOrder="3" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Cart Abandonment Definition Key</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="x_mins_later_since_cart_first" translate="label" type="text" sortOrder="4" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>X mins later since cart abandoned(1st time e-mail sending) need to add some limitation(at least 60 minutes)</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="x_mins_later_since_cart_second" translate="label" type="text" sortOrder="5" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>X mins later since cart abandoned(2nd time e-mail sending)need to add some limitation(at least 60 minutes)</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="coming_soon_alert" translate="label" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label> Coming Soon Alert</label>
+                    <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1"
+                           showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="schedule" translate="label" type="text" sortOrder="2" showInDefault="1" canRestore="1">
+                        <label>Cron Schedule</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="new_sales_event_key" translate="label" type="text" sortOrder="3" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>New Sales Event Definition Key</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="new_sales_preorder_event_key" translate="label" type="text" sortOrder="3" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>New Preorder Sales Event Definition Key</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="new_lottery_sales_event_key" translate="label" type="text" sortOrder="3" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>New Lottery Sales Event Definition Key</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="configuration_path" translate="label" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Restock Alert</label>
+                    <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1"
+                           showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Enabled SMC Linkage</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="restock_event_definition_key" translate="label" type="text" sortOrder="3" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Restock Event Definition Key</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

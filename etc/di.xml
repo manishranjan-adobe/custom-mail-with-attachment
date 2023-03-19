@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--****************************************************************************
+  * ADOBE CONFIDENTIAL
+  * ___________________
+  *
+  * Copyright 2021 Adobe
+  * All Rights Reserved.
+  *
+  * NOTICE: All information contained herein is, and remains
+  * the property of Adobe and its suppliers, if any. The intellectual
+  * and technical concepts contained herein are proprietary to Adobe
+  * and its suppliers and are protected by all applicable intellectual
+  * property laws, including trade secret and copyright laws.
+  * Adobe permits you to use and modify this file
+  * in accordance with the terms of the Adobe license agreement
+  * accompanying it (see LICENSE_ADOBE_PS.txt).
+  * If you have received this file from a source other than Adobe,
+  * then your use, modification, or distribution of it
+  * requires the prior written permission from Adobe.
+  ***************************************************************************-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Casio\SMC\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Casio\SMC\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">smclogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Casio\SMC\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Casio\SMC\Logger\AbandonmentHandler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Casio\SMC\Logger\AbandonmentLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">smccartabandonmentlogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Casio\SMC\Logger\AbandonmentHandler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

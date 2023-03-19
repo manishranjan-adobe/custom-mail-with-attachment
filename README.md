@@ -1,1 +1,1 @@
-# custom-mail-with-attachment
+# casio-smc-integration

@@ -1,0 +1,16 @@
+{
+    "casio_cart_abandonment_info": {
+        "column": {
+            "entity_id": true,
+            "quote_id": true,
+            "event_trigger_count": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CASIO_CART_ABANDONMENT_INFO_QUOTE_ID": true,
+            "CASIO_CART_ABANDONMENT_INFO_QUOTE_ID_QUOTE_ENTITY_ID": true
+        }
+    }
+}

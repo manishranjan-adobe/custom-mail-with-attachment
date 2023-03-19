@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © sanjay, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="casio_cart_abandonment_info" resource="default" engine="innodb"
+           comment="casio_cart_abandonment_info table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true"
+                nullable="false" identity="true"
+                comment="entity id"/>
+        <column xsi:type="int" name="quote_id" unsigned="true" nullable="false" identity="false"
+                comment="quote id"/>
+        <column xsi:type="int" name="event_trigger_count" nullable="true"
+                comment="event trigger count"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false"
+                default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="true"
+                default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="CASIO_CART_ABANDONMENT_INFO_QUOTE_ID">
+            <column name="quote_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CASIO_CART_ABANDONMENT_INFO_QUOTE_ID_QUOTE_ENTITY_ID" table="casio_cart_abandonment_info" column="quote_id" referenceTable="quote" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

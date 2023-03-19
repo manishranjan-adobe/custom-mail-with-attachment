@@ -1,0 +1,20 @@
+{
+    "name": "casio/module-smc",
+    "version": "1.0.0",
+    "description": "Sales force Marketing cloud Email integration",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Casio\\SMC\\": ""
+        }
+    }
+}
