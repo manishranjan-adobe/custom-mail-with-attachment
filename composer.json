@@ -1,7 +1,7 @@
 {
     "name": "casio/module-smc",
     "version": "1.0.0",
-    "description": "Sales force Marketing cloud Email integration",
+    "description": "Sales force Marketing cloud Email integration Testing",
     "type": "magento2-module",
     "require": {
         "magento/framework": "*"
